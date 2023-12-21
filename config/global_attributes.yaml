@@ -1,0 +1,28 @@
+title: "Incoming radiance measured with the FLUO Spectrometer"
+naming_authourity: "Norwegian Institute for Nature Research (NINA)"
+source: >
+  "A hyperspectral field sensor (FloX) installed in Adventdalen in 2019 as part of
+  The Svalbard Integrated Arctic Earth Observing System (SIOS instrument no. 49)."
+summary: >
+  Incoming radiance measured in 2019 with the FLoX FLUO Spectrometer.
+  FLUO covers the range from 650 nm to 800 nm observing the SIF signal
+  within the O2A and O2B Fraunhofer Absorption lines. The FLUO spectrometer
+  has a Spectral Sampling Interval of 0.17 nm and a Spectral Resolution of 0.3 nm.
+keywords: "GCMDSK:Earth Science > ATMOSPHERE > ATMOSPHERIC RADIATION > SOLAR RADIATION, GCMDSK:Earth Science > ATMOSPHERE > ATMOSPHERIC RADIATION > INCOMING SOLAR RADIATION"
+keywords_vocabulary: "GCMDSK:GCMD Science Keywords"
+Conventions: "ACDD-1.3, CF-1.8"
+creator_type: "person"
+creator_name: ""
+creator_email: ""
+creator_url: ""
+creator_institution: ""
+geospatial_lat_min: 78.1854
+geospatial_lat_max: 78.1854
+geospatial_lon_min: 15.9258
+geospatial_lon_max: 15.9258
+publisher_name: "Arctic Data Centre (ADC)"
+publisher_email: "adc-support@met.no"
+publisher_url: "https://adc.met.no/"
+license: "https://creativecommons.org/licenses/by/4.0/"
+institution: "Norwegian Institute for Nature Research (NINA)"
+featureType: "timeSeries"

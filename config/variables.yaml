@@ -1,0 +1,59 @@
+# Variable names and variable attributes to be written to the NetCDF file.
+Incoming_radiance_FLUO_:
+  variable_name: 'incoming_radiance_FLUO_counts'
+  variable_attributes:
+    long_name: 'Raw FLUO spectral data in digital counts for the incoming radiance'
+    coverage_content_type: 'physicalMeasurement'
+    units: '1'
+Incoming_radiance_FULL_F:
+  variable_name: 'incoming_radiance_FULL_counts'
+  variable_attributes:
+    long_name: 'Raw FULL spectral data in digital counts for the incoming radiance'
+    coverage_content_type: 'physicalMeasurement'
+    units: '1'
+Reflectance_FLUO_:
+  variable_name: 'reflectance_FLUO_counts'
+  variable_attributes:
+    long_name: 'Raw FLUO spectral data in digital counts for the reflectance'
+    coverage_content_type: 'physicalMeasurement'
+    units: '1'
+Reflectance_FULL_F:
+  variable_name: 'reflectance_FULL_counts'
+  variable_attributes:
+    long_name: 'Raw FULL spectral data in digital counts for the reflectance'
+    coverage_content_type: 'physicalMeasurement'
+    units: '1'
+Reflected_radiance_FLUO_:
+  variable_name: 'reflected_radiance_FLUO_counts'
+  variable_attributes:
+    long_name: 'Raw FLUO spectral data in digital counts for the reflected radiance'
+    coverage_content_type: 'physicalMeasurement'
+    units: '1'
+Reflected_radiance_FULL_F:
+  variable_name: 'reflected_radiance_FULL_counts'
+  variable_attributes:
+    long_name: 'Raw FLUO spectral data in digital counts for the reflected radiance'
+    coverage_content_type: 'physicalMeasurement'
+    units: '1'
+time:
+  variable_name: 'time'
+  variable_attributes:
+    standard_name: 'time'
+    long_name: 'time'
+    coverage_content_type: 'coordinate'
+    units: 'seconds since 1970-01-01T00:00:00Z'
+    calendar: 'standard'
+wavelength_FLUO:
+  variable_name: 'wavelength_FLUO'
+  variable_attributes:
+    standard_name: 'radiation_wavelength'
+    long_name: 'Wavelength for the fluorescent portion of the spectrum'
+    coverage_content_type: 'coordinate'
+    units: 'nm'
+wavelength_FULL:
+  variable_name: 'wavelength_FULL'
+  variable_attributes:
+    standard_name: 'radiation_wavelength'
+    long_name: 'Wavelength for the full spectrum'
+    coverage_content_type: 'coordinate'
+    units: 'nm'
