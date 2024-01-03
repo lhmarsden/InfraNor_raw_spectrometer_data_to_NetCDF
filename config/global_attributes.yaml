@@ -29,7 +29,6 @@ institution: "Norwegian Institute for Nature Research (NINA)"
 featureType: "timeSeries"
 processing_level: "Raw data from instrument"
 instrument: "Fluorescence box (FLoX)"
-instrument_vocabulary:
 iso_topic_category: "climatologyMeteorologyAtmosphere"
 activity_type: "In Situ Land-based station(Land station) (Field Experiment)"
 operational_status: "Scientific"
