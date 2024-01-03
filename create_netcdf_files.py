@@ -144,7 +144,7 @@ class NetCDF_file():
         )
 
         for variable, info in variables_config.items():
-            if 'wavelength' in variable:
+            if 'wavelength' in variable or variable == 'time':
                 self.ds[info['variable_name']].attrs = info['variable_attributes']
             elif 'FLUO' in variable and 'wavelength':
                 counts_data = self.fluo_df[variable]
@@ -158,7 +158,6 @@ class NetCDF_file():
                 counts_2D_array = counts_data.values.reshape(len(self.full_df['epoch_seconds'].unique()), -1)
                 self.ds[info['variable_name']] = (('time', 'wavelength_FULL'), counts_2D_array)
                 self.ds[info['variable_name']].attrs = info['variable_attributes']
-
 
 
     def add_global_attributes(self, global_attributes_dic):
