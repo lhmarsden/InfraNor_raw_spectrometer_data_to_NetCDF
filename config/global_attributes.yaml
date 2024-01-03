@@ -1,4 +1,5 @@
 title: "Incoming radiance measured with the FLUO Spectrometer"
+id: ""
 naming_authourity: "Norwegian Institute for Nature Research (NINA)"
 source: >
   "A hyperspectral field sensor (FloX) installed in Adventdalen in 2019 as part of
@@ -26,3 +27,9 @@ publisher_url: "https://adc.met.no/"
 license: "https://creativecommons.org/licenses/by/4.0/"
 institution: "Norwegian Institute for Nature Research (NINA)"
 featureType: "timeSeries"
+processing_level: "Raw data from instrument"
+instrument: "Fluorescence box (FLoX)"
+instrument_vocabulary:
+iso_topic_category: "climatologyMeteorologyAtmosphere"
+activity_type: "In Situ Land-based station(Land station) (Field Experiment)"
+operational_status: "Scientific"
