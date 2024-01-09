@@ -139,9 +139,9 @@ class NetCDF_file():
 
         self.ds = xr.Dataset(
             coords={
-                'time': self.fluo_df['epoch_seconds'].unique(),
-                'wavelength_FLUO': self.fluo_df['wl'].unique(),
-                'wavelength_FULL': self.full_df['wl'].unique()
+                'time': sorted(self.fluo_df['epoch_seconds'].unique()),
+                'wavelength_FLUO': sorted(self.fluo_df['wl'].unique()),
+                'wavelength_FULL': sorted(self.full_df['wl'].unique())
             }
         )
 
@@ -239,6 +239,8 @@ def main(input_dir, output_file):
     logger.info("Merging the variable dataframes together into two master dataframes, one for FULL and one for FLUO")
     merged_FULL_df = reduce(lambda left, right: pd.merge(left, right, on=['epoch_seconds', 'timestamp', 'wl']), variable_dfs_FULL)
     merged_FLUO_df = reduce(lambda left, right: pd.merge(left, right, on=['epoch_seconds', 'timestamp', 'wl']), variable_dfs_FLUO)
+    merged_FULL_df = merged_FULL_df.sort_values(by=['epoch_seconds', 'wl'], ascending=[True, True])
+    merged_FLUO_df = merged_FLUO_df.sort_values(by=['epoch_seconds', 'wl'], ascending=[True, True])
 
     logger.info("Creating NetCDF file")
     # Creating NetCDF file
