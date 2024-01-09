@@ -149,13 +149,26 @@ class NetCDF_file():
             elif 'FLUO' in variable and 'wavelength':
                 counts_data = self.fluo_df[variable]
                 # Convert the 'counts' column to a 2D array
-                counts_2D_array = counts_data.values.reshape(len(self.fluo_df['epoch_seconds'].unique()), -1)
+                pivot_df = self.fluo_df.pivot_table(index='epoch_seconds', columns='wl', values=variable)
+                # Get a list of all unique values in the 'wl' column
+                all_wl_values = df['wl'].unique()
+                # Add missing columns (if any) to the pivot table
+                missing_columns = [col for col in all_wl_values if col not in pivot_df.columns]
+                for col in missing_columns:
+                    pivot_df[col] = np.nan  # Fill the missing columns with nans
+                counts_2D_array = pivot_df.to_numpy()
                 self.ds[info['variable_name']] = (('time', 'wavelength_FLUO'), counts_2D_array)
                 self.ds[info['variable_name']].attrs = info['variable_attributes']
             elif 'FULL' in variable:
-                counts_data = self.full_df[variable]
                 # Convert the 'counts' column to a 2D array
-                counts_2D_array = counts_data.values.reshape(len(self.full_df['epoch_seconds'].unique()), -1)
+                pivot_df = self.full_df.pivot_table(index='epoch_seconds', columns='wl', values=variable)
+                # Get a list of all unique values in the 'wl' column
+                all_wl_values = df['wl'].unique()
+                # Add missing columns (if any) to the pivot table
+                missing_columns = [col for col in all_wl_values if col not in pivot_df.columns]
+                for col in missing_columns:
+                    pivot_df[col] = np.nan  # Fill the missing columns with nans
+                counts_2D_array = pivot_df.to_numpy()
                 self.ds[info['variable_name']] = (('time', 'wavelength_FULL'), counts_2D_array)
                 self.ds[info['variable_name']].attrs = info['variable_attributes']
 
