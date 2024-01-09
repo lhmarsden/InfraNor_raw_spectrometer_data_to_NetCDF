@@ -114,6 +114,8 @@ class Variable_DF():
     def rename_counts_column(self, name):
         self.df = self.df.rename(columns={'counts': name})
 
+    def sort_dataframe(self):
+        self.df = self.df.sort_values(by=['epoch_seconds', 'wl'], ascending=[True, True])
 
     # def reshape_for_2d_NetCDF_variable(self):
     #     # Reshape the data to be used for NetCDF
@@ -151,7 +153,7 @@ class NetCDF_file():
                 # Convert the 'counts' column to a 2D array
                 pivot_df = self.fluo_df.pivot_table(index='epoch_seconds', columns='wl', values=variable)
                 # Get a list of all unique values in the 'wl' column
-                all_wl_values = df['wl'].unique()
+                all_wl_values = self.fluo_df['wl'].unique()
                 # Add missing columns (if any) to the pivot table
                 missing_columns = [col for col in all_wl_values if col not in pivot_df.columns]
                 for col in missing_columns:
@@ -163,7 +165,7 @@ class NetCDF_file():
                 # Convert the 'counts' column to a 2D array
                 pivot_df = self.full_df.pivot_table(index='epoch_seconds', columns='wl', values=variable)
                 # Get a list of all unique values in the 'wl' column
-                all_wl_values = df['wl'].unique()
+                all_wl_values = self.full_df['wl'].unique()
                 # Add missing columns (if any) to the pivot table
                 missing_columns = [col for col in all_wl_values if col not in pivot_df.columns]
                 for col in missing_columns:
@@ -225,6 +227,8 @@ def main(input_dir, output_file):
         variable_DF.time_seconds_since_epoch()
         logger.info(f"Renaming counts column to {data_type}")
         variable_DF.rename_counts_column(data_type)
+        logger.info("Sorting dataframe in time, wavelength order")
+        variable_DF.sort_dataframe()
         logger.info("Appending variable dataframe to list of dataframes")
 
         if 'FULL' in data_type:
